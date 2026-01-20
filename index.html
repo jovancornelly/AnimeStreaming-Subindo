@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeFlix - Streaming Anime Gratis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.3/video-js.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-video {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            background: #000;
+        }
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 90%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-play-circle"></i>
+                <span>AnimeFlix</span>
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Beranda</a>
+                <a href="dashboard.html"><i class="fas fa-fire"></i> Trending</a>
+                <a href="#genres"><i class="fas fa-th-large"></i> Genre</a>
+                <a href="#ongoing"><i class="fas fa-tv"></i> Ongoing</a>
+                <a href="login.html" class="btn-login"><i class="fas fa-user"></i> Login</a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Cari anime...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section dengan Video Trailer -->
+    <section class="hero-video">
+        <video autoplay muted loop id="trailerVideo">
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Streaming Anime Terlengkap</h1>
+            <p>Nonton anime sub Indo dan dub Indonesia gratis, tanpa iklan, kualitas HD.</p>
+            <div class="hero-buttons">
+                <a href="dashboard.html" class="btn-primary">
+                    <i class="fas fa-play"></i> Mulai Nonton
+                </a>
+                <button class="btn-secondary" onclick="playTrailer()">
+                    <i class="fas fa-info-circle"></i> Lihat Trailer
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anime Slider -->
+    <section class="section">
+        <div class="section-header">
+            <h2><i class="fas fa-fire"></i> Trending Minggu Ini</h2>
+            <a href="dashboard.html" class="see-all">Lihat Semua</a>
+        </div>
+        <div class="anime-slider" id="trendingAnime">
+            <!-- Anime cards will be loaded here -->
+        </div>
+    </section>
+
+    <!-- Genres -->
+    <section class="section" id="genres">
+        <div class="section-header">
+            <h2><i class="fas fa-th-large"></i> Genre Populer</h2>
+        </div>
+        <div class="genres-grid">
+            <a href="#" class="genre-card" style="background: #FF6B6B;">Action</a>
+            <a href="#" class="genre-card" style="background: #4ECDC4;">Adventure</a>
+            <a href="#" class="genre-card" style="background: #FFD166;">Comedy</a>
+            <a href="#" class="genre-card" style="background: #06D6A0;">Drama</a>
+            <a href="#" class="genre-card" style="background: #118AB2;">Fantasy</a>
+            <a href="#" class="genre-card" style="background: #073B4C;">Romance</a>
+            <a href="#" class="genre-card" style="background: #7209B7;">Sci-Fi</a>
+            <a href="#" class="genre-card" style="background: #F72585;">Slice of Life</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AnimeFlix</h3>
+                <p>Platform streaming anime gratis untuk penggemar Indonesia.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">DMCA</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AnimeFlix. Hak cipta pada pemilik konten masing-masing.</p>
+        </div>
+    </footer>
+
+    <!-- Trailer Modal -->
+    <div id="trailerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeTrailer()">&times;</span>
+            <div class="video-container">
+                <video id="modalTrailer" controls>
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
